@@ -4,7 +4,21 @@
 ## that can cache its inverse.
 
 makeCacheMatrix <- function(x = matrix()) {
-
+       ## Cache inverse
+	   ci <- NULL 
+	   ## set & get value of the vector
+        set <- function(y) {
+                x <<- y
+                ci <<- NULL
+        }
+        get <- function() x
+		
+        ## set & get value of the cache inverse
+		setCacheInverse <- function(cacheInverse) ci <<- cacheInverse
+        getCacheInverse <- function() ci
+        list(set = set, get = get,
+             setCacheInverse = setCacheInverse,
+             getCacheInverse = getCacheInverse)
 }
 
 
